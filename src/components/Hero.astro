@@ -1,0 +1,72 @@
+---
+import image from "/public/img/slider-1.png";
+---
+
+<section class="hero padding-y-lg padding-y-2xl@lg" data-img-light>
+  <div class="container max-width-adaptive-lg">
+    <div class="grid">
+      <div class="col-5@md">
+        <div class="flex flex-column gap-sm">
+          <h1>Rent an electric scooter in the easiest possible way!</h1>
+          <p class="text-sm">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, rem
+            neque doloribus impedit explicabo minus laborum cupiditate atque
+            esse consectetur.
+          </p>
+          <div class="flex flex-wrap gap-sm items-center"></div>
+        </div>
+      </div>
+      <div class="col-7@md position-relative">
+        <div class="position-absolute display@lg hero-image">
+          <img src={image} alt="Image Description" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  /* -------------------------------- 
+
+File#: _1_hero
+Title: Hero
+Descr: A full-width callout section
+Usage: codyhouse.co/license
+
+-------------------------------- */
+  .hero {
+    background-color: var(--color-primary);
+    /* if background image in CSS */
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    /* background-position: center center; */
+  }
+
+  /* --overlay-layer */
+  .hero--overlay-layer::after {
+    /* add a layer in between the img/video background and the content */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: hsla(
+      var(--color-bg-h),
+      var(--color-bg-s),
+      var(--color-bg-l),
+      0.65
+    );
+    z-index: 1;
+  }
+
+  .hero-image {
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .hero-image img{
+    max-width: 200px;
+    transform: rotate(10deg);
+  }
+</style>

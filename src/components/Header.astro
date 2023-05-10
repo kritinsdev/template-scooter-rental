@@ -1,0 +1,337 @@
+<header class="header position-relative js-header">
+    <div class="header__container container max-width-lg">
+        <div class="header__logo">
+            <a href="#0" class="text-decoration-none">
+                <span class="font-bold text-lg">KR.dev</span>
+            </a>
+        </div>
+
+        <button
+            class="btn btn--subtle header__trigger js-header__trigger"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="header-nav"
+        >
+            <i class="header__trigger-icon" aria-hidden="true"></i>
+            <span>Menu</span>
+        </button>
+
+        <nav
+            class="header__nav js-header__nav"
+            id="header-nav"
+            role="navigation"
+            aria-label="Main"
+        >
+            <div class="header__nav-inner">
+                <div class="header__label">Main menu</div>
+                <ul class="header__list">
+                    <li class="header__item">
+                        <a href="#0" class="header__link">Home</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#0" class="header__link">About Us</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#0" class="header__link" aria-current="page"
+                            >Vehicles</a
+                        >
+                    </li>
+                    <li class="header__item">
+                        <a href="#0" class="header__link">How it works?</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#0" class="header__link">Contact</a>
+                    </li>
+
+                    </li>
+                    <li class="header__item">
+                        <a href="#0" class="header__nav-btn btn btn--primary"
+                            >Buy now</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<style>
+    /* -------------------------------- 
+
+File#: _1_main-header
+Title: Main Header
+Descr: Accessible website navigation
+Usage: codyhouse.co/license
+
+-------------------------------- */
+    :root {
+        --header-height: 50px;
+    }
+    @media (min-width: 64rem) {
+        :root {
+            --header-height: 70px;
+        }
+    }
+
+    .header {
+        height: var(--header-height);
+        width: 100%;
+        background-color: var(--color-bg);
+        z-index: var(--z-index-header, 3);
+    }
+
+    .header__container {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header__logo {
+        position: relative;
+        z-index: 2;
+        flex-shrink: 0;
+    }
+    .header__logo a,
+    .header__logo svg,
+    .header__logo img {
+        display: block;
+    }
+
+    .header__nav {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-height: 100vh;
+        background-color: var(--color-bg);
+        box-shadow: var(--shadow-md);
+        overflow: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        display: none;
+    }
+    .header__nav::before {
+        content: "";
+        display: block;
+        position: sticky;
+        top: 0;
+        height: var(--header-height);
+        background: inherit;
+        border-bottom: 1px solid var(--color-contrast-lower);
+    }
+
+    .header__nav--is-visible {
+        display: block;
+    }
+
+    .header__nav-inner {
+        padding: var(--space-md);
+    }
+
+    .header__label {
+        font-size: var(--text-sm);
+        color: var(--color-contrast-medium);
+        margin-bottom: var(--space-sm);
+    }
+
+    .header__item {
+        margin-bottom: var(--space-sm);
+    }
+
+    .header__link {
+        font-size: var(--text-lg);
+        color: var(--color-contrast-higher);
+        text-decoration: none;
+    }
+    .header__link:hover,
+    .header__link[aria-current] {
+        color: var(--color-primary);
+    }
+
+    .header__nav-btn {
+        font-size: var(--text-lg);
+        width: 100%;
+    }
+
+    .header__trigger {
+        position: relative;
+        z-index: 2;
+    }
+
+    .header__trigger-icon {
+        position: relative;
+        display: block;
+        height: 2px;
+        width: 1em;
+        background-color: currentColor;
+        margin-right: var(--space-2xs);
+        transition: 0.2s;
+    }
+    .header__trigger-icon::before,
+    .header__trigger-icon::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: inherit;
+        height: inherit;
+        background-color: currentColor;
+        transition: 0.2s;
+    }
+    .header__trigger-icon::before {
+        transform: translateY(-5px);
+    }
+    .header__trigger-icon::after {
+        transform: translateY(5px);
+    }
+
+    .header__trigger[aria-expanded="true"] .header__trigger-icon {
+        background-color: transparent;
+    }
+    .header__trigger[aria-expanded="true"] .header__trigger-icon::before {
+        transform: rotate(45deg);
+    }
+    .header__trigger[aria-expanded="true"] .header__trigger-icon::after {
+        transform: rotate(-45deg);
+    }
+
+    @media (min-width: 64rem) {
+        .header__nav {
+            position: static;
+            background-color: transparent;
+            width: auto;
+            max-height: none;
+            box-shadow: none;
+            overflow: visible;
+            overscroll-behavior: auto;
+            display: block;
+        }
+        .header__nav::before {
+            display: none;
+        }
+        .header__nav-inner {
+            padding: 0;
+        }
+        .header__label {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            -webkit-clip-path: inset(50%);
+            clip-path: inset(50%);
+        }
+        .header__list {
+            display: flex;
+            align-items: center;
+        }
+        .header__item {
+            display: inline-block;
+            margin-bottom: 0;
+            margin-left: var(--space-lg);
+        }
+        .header__link,
+        .header__nav-btn {
+            font-size: 1rem;
+        }
+
+        .header__trigger {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    // File#: _1_main-header
+    // Usage: codyhouse.co/license
+    (function () {
+        var mainHeader = document.getElementsByClassName("js-header");
+        if (mainHeader.length > 0) {
+            var trigger =
+                    mainHeader[0].getElementsByClassName(
+                        "js-header__trigger"
+                    )[0],
+                nav = mainHeader[0].getElementsByClassName("js-header__nav")[0];
+
+            // we'll use these to store the node that needs to receive focus when the mobile menu is closed
+            var focusMenu = false;
+
+            //detect click on nav trigger
+            trigger.addEventListener("click", function (event) {
+                event.preventDefault();
+                toggleNavigation(
+                    !nav.classList.contains("header__nav--is-visible")
+                );
+            });
+
+            // listen for key events
+            window.addEventListener("keyup", function (event) {
+                // listen for esc key
+                if (
+                    (event.keyCode && event.keyCode == 27) ||
+                    (event.key && event.key.toLowerCase() == "escape")
+                ) {
+                    // close navigation on mobile if open
+                    if (
+                        trigger.getAttribute("aria-expanded") == "true" &&
+                        isVisible(trigger)
+                    ) {
+                        focusMenu = trigger; // move focus to menu trigger when menu is close
+                        trigger.click();
+                    }
+                }
+                // listen for tab key
+                if (
+                    (event.keyCode && event.keyCode == 9) ||
+                    (event.key && event.key.toLowerCase() == "tab")
+                ) {
+                    // close navigation on mobile if open when nav loses focus
+                    if (
+                        trigger.getAttribute("aria-expanded") == "true" &&
+                        isVisible(trigger) &&
+                        !document.activeElement.closest(".js-header")
+                    )
+                        trigger.click();
+                }
+            });
+
+            // listen for resize
+            var resizingId = false;
+            window.addEventListener("resize", function () {
+                clearTimeout(resizingId);
+                resizingId = setTimeout(doneResizing, 500);
+            });
+
+            function doneResizing() {
+                if (
+                    !isVisible(trigger) &&
+                    mainHeader[0].classList.contains("header--expanded")
+                )
+                    toggleNavigation(false);
+            }
+        }
+
+        function isVisible(element) {
+            return (
+                element.offsetWidth ||
+                element.offsetHeight ||
+                element.getClientRects().length
+            );
+        }
+
+        function toggleNavigation(bool) {
+            // toggle navigation visibility on small device
+            nav.classList.toggle("header__nav--is-visible", bool);
+            mainHeader[0].classList.toggle("header--expanded", bool);
+            trigger.setAttribute("aria-expanded", bool);
+            if (bool) {
+                //opening menu -> move focus to first element inside nav
+                nav.querySelectorAll(
+                    "[href], input:not([disabled]), button:not([disabled])"
+                )[0].focus();
+            } else if (focusMenu) {
+                focusMenu.focus();
+                focusMenu = false;
+            }
+        }
+    })();
+</script>

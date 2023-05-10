@@ -1,0 +1,224 @@
+<section class="padding-y-lg">
+    <div class="container max-width-md">
+        <div class="p-table">
+            <div class="grid gap-sm">
+                <div class="p-table__item col-4@md">
+                    <div class="margin-bottom-2xs">
+                        <h4 class="p-table__title">Regular rent</h4>
+                    </div>
+        
+                    <div class="p-table__price margin-bottom-sm">
+                        <span>$225</span>
+                        <i>/ month</i>
+                    </div>
+
+                    <p class="text-sm margin-bottom-sm color-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni fugiat sunt at incidunt, saepe quisquam dolores non debitis placeat voluptatem.</p>
+        
+                    <ul class="p-table__features margin-bottom-md">
+                        <li>1x user</li>
+                        <li>Free 15/days trial</li>
+                        <li>Access to all features</li>
+                        <li>1 project</li>
+                    </ul>
+        
+                    <div class="margin-top-auto">
+                        <a href="#0" class="btn btn--primary text-md width-100%"
+                            >Rent now</a>
+                    </div>
+                </div>
+        
+                <div class="p-table__item p-table__item--popular col-4@md">
+                    <div class="flex justify-between items-center margin-bottom-2xs">
+                        <h4 class="p-table__title">All day rent</h4>
+                        <span class="p-table__badge">Popular</span>
+                    </div>
+        
+                    <div class="p-table__price margin-bottom-sm">
+                        <span>$45.99</span>
+                    </div>
+
+                    <p class="text-sm margin-bottom-sm color-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni fugiat sunt at incidunt.</p>
+        
+                    <ul class="p-table__features margin-bottom-md">
+                        <li>1x user</li>
+                        <li>Access to all features</li>
+                        <li>10 projects</li>
+                        <li>E-commerce integration</li>
+                        <li>Email support</li>
+                    </ul>
+        
+                    <div class="margin-top-auto">
+                        <a href="#0" class="btn btn--primary text-md width-100%"
+                            >Rent now</a>
+                    </div>
+                </div>
+        
+                <div class="p-table__item col-4@md">
+                    <div class="margin-bottom-2xs">
+                        <h4 class="p-table__title">Students</h4>
+                    </div>
+        
+                    <div class="p-table__price margin-bottom-sm">
+                        <span>$99</span>
+                        <i>/ month</i>
+                    </div>
+
+                    <p class="text-sm margin-bottom-sm color-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni fugiat sunt at incidunt. Lorem ipsum dolor sit amet.</p>
+        
+                    <ul class="p-table__features margin-bottom-md">
+                        <li>10x users</li>
+                        <li>Access to all features</li>
+                        <li>Unlimited projects</li>
+                        <li>E-commerce integration</li>
+                        <li>24/7 support</li>
+                        <li>Full security</li>
+                    </ul>
+        
+                    <div class="margin-top-auto">
+                        <a href="#0" class="btn btn--primary text-md width-100%"
+                            >Rent now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* -------------------------------- 
+
+File#: _2_pricing-table
+Title: Pricing Table
+Descr: A table used to compare prices and features of different products
+Usage: codyhouse.co/license
+
+-------------------------------- */
+    .p-table__item {
+        background-color: var(--color-bg-dark);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--inner-glow);
+        padding: var(--space-md);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .p-table__item--popular {
+        background-color: var(--color-bg-light);
+        box-shadow: 0 0 0 2px var(--color-primary), var(--shadow-md);
+    }
+
+    .p-table__badge {
+        font-size: var(--text-sm);
+        background-color: var(--color-contrast-high);
+        color: var(--color-bg);
+        padding: var(--space-3xs) var(--space-2xs);
+        vertical-align: middle;
+        border-radius: var(--radius-md);
+    }
+
+    .p-table__price span {
+        font-size: var(--text-3xl);
+        font-weight: bold;
+    }
+    .p-table__price i {
+        color: var(--color-contrast-low);
+    }
+
+    .p-table__features li {
+        margin-bottom: var(--space-xs);
+    }
+
+    .p-table__switch {
+        display: none;
+    }
+
+    .p-table--has-switch .p-table__price-wrapper {
+        position: relative;
+        overflow: hidden;
+    }
+    .p-table--has-switch .p-table__price {
+        will-change: transform;
+        transition: transform 0.3s, opacity 0.3s;
+        transition-timing-function: var(--ease-out);
+    }
+    .p-table--has-switch .p-table__price[data-transition-delay="2nd"] {
+        transition-delay: 0.1s;
+    }
+    .p-table--has-switch .p-table__price[data-transition-delay="3rd"] {
+        transition-delay: 0.2s;
+    }
+    .p-table--has-switch .p-table__price--month {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    .p-table--has-switch .p-table__price--year {
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    .p-table--yearly .p-table__price--month {
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    .p-table--yearly .p-table__price--year {
+        pointer-events: auto;
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    if (!Util) function Util() {}
+
+    Util.addClass = function (el, className) {
+        var classList = className.split(" ");
+        el.classList.add(classList[0]);
+        if (classList.length > 1)
+            Util.addClass(el, classList.slice(1).join(" "));
+    };
+
+    Util.removeClass = function (el, className) {
+        var classList = className.split(" ");
+        el.classList.remove(classList[0]);
+        if (classList.length > 1)
+            Util.removeClass(el, classList.slice(1).join(" "));
+    };
+
+    Util.toggleClass = function (el, className, bool) {
+        if (bool) Util.addClass(el, className);
+        else Util.removeClass(el, className);
+    };
+
+    // File#: _2_pricing-table
+    // Usage: codyhouse.co/license
+    (function () {
+        // NOTE: you need the js code only when using the --has-switch variation of the pricing table
+        // default version does not require js
+        var pTable = document.getElementsByClassName("js-p-table--has-switch");
+        if (pTable.length > 0) {
+            for (var i = 0; i < pTable.length; i++) {
+                (function (i) {
+                    addPTableEvent(pTable[i]);
+                })(i);
+            }
+
+            function addPTableEvent(element) {
+                var pSwitch =
+                    element.getElementsByClassName("js-p-table__switch")[0];
+                if (pSwitch) {
+                    pSwitch.addEventListener("change", function (event) {
+                        Util.toggleClass(
+                            element,
+                            "p-table--yearly",
+                            event.target.value == "yearly"
+                        );
+                    });
+                }
+            }
+        }
+    })();
+</script>
